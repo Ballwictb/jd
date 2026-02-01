@@ -48,7 +48,6 @@
         </header>
         <div id="editorView">
             <div class="grid gap-6 lg:grid-cols-2">
-                <!-- Editor Izquierdo -->
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
                         <h2 class="text-lg font-semibold">JSON 1</h2>
@@ -99,7 +98,6 @@
 
                 </div>
 
-                <!-- Editor Derecho -->
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
                         <h2 class="text-lg font-semibold">JSON 2</h2>
@@ -150,7 +148,6 @@
                 </div>
             </div>
 
-            <!-- Botones de acción central -->
             <div class="mt-6 flex justify-center gap-4">
                 <button
                     onclick="uiManager.loadExample()"
@@ -170,10 +167,52 @@
                 </button>
             </div>
         </div>
+        <div id="diffView" class="hidden">
+            <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold">Resultado de la Comparación</h2>
+                        <p id="diffSummary" class="text-sm text-gray-500 dark:text-gray-400 mt-1"></p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            id="downloadPngBtn"
+                            disabled
+                            onclick="exportManager.downloadPNG()"
+                            class="hidden rounded-md border border-gray-300 dark:border-gray-700 bg-gray dark:bg-gray-800 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
+                        >
+                            <i data-lucide="file-image" class="h-4 w-4"></i>
+                            Descargar PNG
+                        </button>
+                        <button
+                            id="downloadPdfBtn"
+                            onclick="exportManager.downloadPDF()"
+                            class="hidden rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
+                        >
+                            <i data-lucide="download" class="h-4 w-4"></i>
+                            Descargar PDF
+                        </button>
+                        <button
+                            onclick="app.backToEditor()"
+                            class="rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        >
+                            ← Volver a Editar
+                        </button>
+                    </div>
+                </div>
+
+                <div id="diffContainer" class="space-y-4"></div>
+            </div>
+        </div>
     </div>
-    
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/json-validator.js"></script>
+    <script src="assets/js/json-formatter.js"></script>
+    <script src="assets/js/json-comparator.js"></script>
+    <script src="assets/js/syntax-highlighter.js"></script>
+    <script src="assets/js/theme-manager.js"></script>
+    <script src="assets/js/export-manager.js"></script>
     <script src="assets/js/ui-manager.js"></script>
+    <script src="assets/js/app.js"></script>
 
 
     <script>
